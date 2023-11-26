@@ -25,17 +25,30 @@ function addBook() {
     let pages = pagesinput.value
     let finished = finishedinput.value
     let book =  new Book(author, title, pages, finished)
-    let row = document.createElement('tr')
+    myLibrary.push(book)
+    authorinput.value = ''
+    titleinput.value = ''
+    pagesinput.value = ''
+    finishedinput.value = ''
+    
+
     
     
-    for (let attibute in book) {
-        let tabledata = document.createElement('td')
-        
-        tabledata.textContent = book[attibute]
-        
-        row.appendChild(tabledata)
+    
+    
+}
+function displayMyLibrary() {
+    for (let book of myLibrary ) {
+        let row = document.createElement('tr')
+        for (let attibute in book) {
+            let tabledata = document.createElement('td')
+            tabledata.textContent = book[attibute]
+            row.appendChild(tabledata)
+        }
+        table.appendChild(row)
+
     }
-    table.appendChild(row)
 }
 
 addBookbtn.addEventListener('click', addBook)
+displayBooks.addEventListener('click', displayMyLibrary)
