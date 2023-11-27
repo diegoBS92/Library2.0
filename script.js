@@ -9,7 +9,7 @@ let hidebtn = document.querySelector('.hideBooks')
 let authorinput = document.getElementById('author')
 let titleinput = document.getElementById('title')
 let pagesinput = document.getElementById('pages')
-let finishedinput = document.getElementById('finished')
+let stateinput = document.getElementById('state')
 
 
 const myLibrary = []
@@ -26,7 +26,7 @@ function addBook() {
     let author = authorinput.value
     let title = titleinput.value
     let pages = pagesinput.value
-    let finished = finishedinput.value
+    let finished = stateinput.value
     let book =  new Book(author, title, pages, finished)
     myLibrary.push(book)
     authorinput.value = ''
@@ -41,14 +41,19 @@ function displayMyLibrary() {
     let thTitle = document.createElement('th')
     let thPages = document.createElement('th')
     let thFinished = document.createElement('th')
+    
+    let thRemove = document.createElement('th')
     thAuthor.textContent = 'Author'
     thTitle.textContent = 'Title' 
     thPages.textContent ='Pages' 
-    thFinished.textContent = 'Have you finised the book?'
+    thFinished.textContent = 'State of the book?'
+    thRemove.textContent = 'Remove books'
+
     tr.appendChild(thAuthor)
     tr.appendChild(thTitle)
     tr.appendChild(thPages)
     tr.appendChild(thFinished)
+    tr.appendChild(thRemove)
     table.appendChild(tr)
 
     let index = 0
@@ -58,8 +63,24 @@ function displayMyLibrary() {
         for (let attibute in book) {
             let tabledata = document.createElement('td')
             tabledata.textContent = book[attibute]
+            if (attibute == 'finished') {
+                
+                let togglebtn = document.createElement('button')
+                togglebtn.textContent = book[attibute] == 'reading' ? 'reading' : 'finished'
+                tabledata.textContent = ''
+                tabledata.appendChild(togglebtn)
+                togglebtn.addEventListener('click', () => {
+                    togglebtn.textContent = book[attibute] == 'reading' ? 'finished' :'reading' 
+                    book[attibute] = book[attibute] == 'reading' ? 'finished' :'reading'
+                    console.table(myLibrary)
+                    
+
+                })
+            } 
+            
             row.appendChild(tabledata)
         }
+        let togglebtn = document.createElement('button')
         let removebtntd = document.createElement('td')
         let removebtn = document.createElement('button')
         removebtn.textContent= 'remove'
