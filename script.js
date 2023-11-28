@@ -5,6 +5,7 @@ let displayBooks = document.querySelector('.displayBooks')
 let table = document.querySelector('.table')
 let dialog = document.querySelector('.dialog')
 let hidebtn = document.querySelector('.hideBooks')
+let closeSubmit = document.querySelector('.closeSubmit')
 
 let authorinput = document.getElementById('author')
 let titleinput = document.getElementById('title')
@@ -12,7 +13,39 @@ let pagesinput = document.getElementById('pages')
 let stateinput = document.getElementById('state')
 
 
-const myLibrary = []
+const myLibrary = [
+    {
+        author: 'Joseph Heller',
+        title: 'Catch-22', 
+        pages: '',
+        finished: 'reading'
+    },
+    {
+        author: 'Mark Z Danielewski',
+        title: 'House of Leaves', 
+        pages: '',
+        finished: 'reading'
+    },
+    {
+        author: 'JRR Tolkien',
+        title: 'Lord of the Rings', 
+        pages: '',
+        finished: 'reading'
+    },
+    {
+        author: 'Sir Terry Pratchett',
+        title: 'Small Gods', 
+        pages: '',
+        finished: 'reading'
+    },
+    {
+        author: 'Gene Wolfe',
+        title: 'The Wizard Knight ', 
+        pages: '',
+        finished: 'reading'
+    },
+    
+]
 
 function Book(author, title, pages, finished ) {
     this.author = author
@@ -67,6 +100,7 @@ function displayMyLibrary() {
                 
                 let togglebtn = document.createElement('button')
                 togglebtn.textContent = book[attibute] == 'reading' ? 'reading' : 'finished'
+            
                 tabledata.textContent = ''
                 tabledata.appendChild(togglebtn)
                 togglebtn.addEventListener('click', () => {
@@ -106,6 +140,9 @@ addBookbtn.addEventListener('click', () => {
     
 })
 submitbtn.addEventListener('click', addBook)
+closeSubmit.addEventListener('click', ()=> {
+    dialog.close()
+})
 displayBooks.addEventListener('click', displayMyLibrary)
 hidebtn.addEventListener('click', ()=> {
     table.innerHTML = ''

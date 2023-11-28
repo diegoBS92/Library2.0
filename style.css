@@ -1,0 +1,84 @@
+:root {
+    background-color: aqua;
+}
+
+form, button {
+    background-color: aqua;
+    border: 2px solid black;
+    padding: 10px 20px;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 3px solid rgb(0, 0, 0);
+    color: black;
+    background-color: rgb(100, 225, 247);
+    
+}
+button:hover {
+    border: 2px solid rgb(134, 134, 134);
+    color: rgb(158, 158, 158);
+    font-size: 18px;
+    
+}
+
+table {
+    border-collapse: collapse;
+    background-color: aqua;
+    border: 2px solid black;
+}
+th, td {
+    border: 2px solid black;
+    padding: 2px 10px;
+    text-align: center;
+
+}
+
+.main {
+    background-image: url(src/Sprinkle.svg);
+    font-family: hero;
+
+}
+
+form, form div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.content {
+    display: flex;
+    border: 5px rgb(0, 0, 0) solid;
+    border-radius: 5px;
+
+}
+
+.side {
+    gap: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+}
+.tablediv
+ {
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+ }
+
+ 
+
+
+
+
+@font-face {
+    font-family: hero;
+    src: url(src/Hero.otf);
+}

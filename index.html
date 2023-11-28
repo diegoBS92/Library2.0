@@ -8,9 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div>
-        <dialog class="dialog">
-            <form action="">
+    <div class="main">
+        <dialog class="dialog" >
+            <form action="" >
                 <div>
                     <label for="">Author:</label>
                     <input id="author" type="text">
@@ -34,26 +34,44 @@
                     
     
                 </div>
-                <div><button type="button" class="submitBook">Add the book to the library</button></div>
+                <div><button type="button" class="submitBook">Add the book to the library</button>
+                <button type="button" class="closeSubmit">Close</button></div>
                 
             </form>
 
         </dialog>
-        <button type="button" class="addBook">Add a new book to my library</button>
+        
+        <div class="content">
+            <div class="side">
+                <div>
+                    <button type="button" class="addBook">Add a new book to my library</button>
+                </div>
+                <div>
+                    <img src="src/logo.png" alt="">
+                </div>
+                <div>
+                    <button class="displayBooks">Show my library</button>
+                </div>
+                <div>
+                    <button class="hideBooks">Hide my library</button>
+                </div>
+            </div>
+            <div class="tablediv">
+                <table class="table">
+                    <div></div>
+                    <span>
+                        <tr>
+                            
+                        </tr>
+                    </span>
+                </table>
+            </div>
+          
+            
+        </div>
     </div>
 
-    <div>
-        <button class="displayBooks">Show me my library</button>
-        <button class="hideBooks">Hide my library</button>
-        <table class="table">
-            <div></div>
-            <span>
-                <tr>
-                    
-                </tr>
-            </span>
-        </table>
-    </div>
+    
     
 </body>
 </html>
